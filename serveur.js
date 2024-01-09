@@ -11,6 +11,21 @@ const requestListener = function (req, res) {
   } else if (req.url === "/discover") {
     // Si l'URL se termine par '/discover', servez discover.html
     filePath = path.join(__dirname, "front", "discover.html");
+  } else if (req.url === "/matchs") {
+    // Si l'URL se termine par '/matchs', servez matchs.html
+    filePath = path.join(__dirname, "front", "matchs.html");
+  } else if (req.url === "/likes") {
+    // Si l'URL se termine par '/likes', servez likes.html
+    filePath = path.join(__dirname, "front", "likes.html");
+  } else if (req.url === "/profil") {
+    // Si l'URL se termine par '/profil', servez profil.html
+    filePath = path.join(__dirname, "front", "profil.html");
+  } else if (req.url === "/register") {
+    // Si l'URL se termine par '/register', servez register.html
+    filePath = path.join(__dirname, "front", "index.html");
+  } else if (req.url === "/myProfil") {
+    // Si l'URL se termine par '/myProfil', servez myProfil.html
+    filePath = path.join(__dirname, "front", "myProfil.html");
   } else {
     // Sinon, construisez le chemin complet en fonction de l'URL demandée
     filePath = path.join(__dirname, "front", req.url);
