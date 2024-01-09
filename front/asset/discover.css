@@ -12,7 +12,10 @@ body {
   flex-direction: row;
 }
 
+/* ------------------- NAVBAR ------------------- */
+
 nav {
+  position: fixed;
   background-color: #ba62ff;
   border-right: 1px solid #eaeaea;
   display: flex;
@@ -62,7 +65,7 @@ nav .btnNav span {
   font-weight: bold;
 }
 
-nav a {
+nav .deco {
   color: #fefefe;
   font-size: 1.125rem;
   font-weight: bold;
@@ -72,3 +75,5 @@ nav a {
   border-radius: 30px;
   box-shadow: 1px 1px 10px #1e1e1e;
 }
+
+/* ------------------- MAIN ------------------- */

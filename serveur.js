@@ -7,6 +7,9 @@ const requestListener = function (req, res) {
 
   if (req.url === "/") {
     // Si l'URL se termine par '/', servez index.html
+    filePath = path.join(__dirname, "front", "index.html");
+  } else if (req.url === "/discover") {
+    // Si l'URL se termine par '/discover', servez discover.html
     filePath = path.join(__dirname, "front", "discover.html");
   } else {
     // Sinon, construisez le chemin complet en fonction de l'URL demandée
