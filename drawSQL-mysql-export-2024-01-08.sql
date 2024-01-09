@@ -1,19 +1,18 @@
-CREATE TABLE `user` (
-    `id` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `username` TEXT NOT NULL UNIQUE,
-    `email` TEXT NOT NULL UNIQUE,
-    `password_hash` TEXT NOT NULL,
-    `first_name` TEXT NOT NULL,
-    `last_name` TEXT,
-    `date_of_birth` DATE NOT NULL,
-    `gender` TEXT CHECK(gender IN ('Male', 'Female', 'Other')) NOT NULL,
-    `campus` TEXT NOT NULL,
-    `branch` TEXT NOT NULL,
-    `level` TEXT NOT NULL,
-    `location` TEXT NOT NULL,
-    `bio` TEXT,
-    `profile_picture` TEXT,
-    `registration_date` DATETIME DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    city TEXT NOT NULL,
+    branch TEXT NOT NULL,
+    level TEXT NOT NULL,
+    bio TEXT,
+    profile_picture TEXT,
+    instagram TEXT,
+    snap TEXT,
 );
 
 CREATE TABLE `like` (
