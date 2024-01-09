@@ -12,6 +12,13 @@ body {
   flex-direction: row;
 }
 
+/* ------------------- ALL ------------------- */
+
+.icon {
+  height: 1.875rem;
+  width: 1.875rem;
+}
+
 /* ------------------- NAVBAR ------------------- */
 
 nav {
@@ -23,9 +30,10 @@ nav {
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
+  border: none;
   border-radius: 0 30px 30px 0;
   padding: 1rem;
-  width: 18.75rem;
+  width: 15rem;
   box-shadow: 4px 4px 10px #1e1e1e;
 }
 
@@ -40,7 +48,7 @@ nav .logo {
 }
 
 nav ul {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 nav .btnNav {
@@ -52,11 +60,6 @@ nav .btnNav {
   cursor: pointer;
   margin-top: 2rem;
   outline: none;
-}
-
-nav .btnNav img {
-  height: 1.875rem;
-  width: 1.875rem;
 }
 
 nav .btnNav span {
@@ -77,3 +80,83 @@ nav .deco {
 }
 
 /* ------------------- MAIN ------------------- */
+
+main {
+  margin-left: 15rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* ------------------- CARD ------------------- */
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #ba62ff;
+  border-radius: 30px;
+  border: #1e1e1e solid 5px;
+  box-shadow: 4px 4px 10px #1e1e1e;
+  margin: 2rem;
+  padding: 1rem;
+  height: 25rem;
+  width: 45rem;
+
+  color: #1e1e1e;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.card .imgProfil {
+  position: relative;
+  height: 18.125rem;
+  width: 14.375rem;
+  background-color: #a1a1a1;
+  border-radius: 30px;
+  margin-right: 1rem;
+}
+
+.card .cardInfo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 1rem;
+  height: 90%;
+  width: 50%;
+}
+
+.card .cardInfo .title {
+  color: #1e1e1e;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card .btnsCard {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+}
+
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 27.1rem 47rem 0 0;
+  border-color: #fefefe transparent #1e1e1e transparent;
+  position: absolute;
+  border-radius: 25px 25px 0 28px;
+}
