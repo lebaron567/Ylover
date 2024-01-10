@@ -118,7 +118,7 @@ main {
   background-color: #a1a1a1;
   border-radius: 30px;
   margin-right: 1rem;
-  background-size: cover;
+  object-fit: scale-down;
 }
 
 .card .cardInfo {
@@ -182,7 +182,7 @@ main {
   align-items: center;
   justify-content: space-between;
   bottom: 0;
-  width: 100%;
+  width: 80%;
 }
 
 .triangle {

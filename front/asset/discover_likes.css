@@ -138,7 +138,7 @@ main {
   background-color: #a1a1a1;
   border-radius: 30px;
   margin-right: 1rem;
-  background-size: cover;
+  object-fit: scale-down;
 }
 
 .card .cardInfo {
