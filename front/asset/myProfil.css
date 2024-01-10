@@ -12,10 +12,17 @@ body {
   flex-direction: row;
 }
 
+/* ------------------- ALL ------------------- */
+
+.icon {
+  height: 1.875rem;
+  width: 1.875rem;
+}
+
 /* ------------------- NAVBAR ------------------- */
 
 nav {
-  position: static;
+  position: fixed;
   background-color: #ba62ff;
   border-right: 1px solid #eaeaea;
   display: flex;
@@ -23,9 +30,10 @@ nav {
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
+  border: none;
   border-radius: 0 30px 30px 0;
   padding: 1rem;
-  width: 18.75rem;
+  width: 15rem;
   box-shadow: 4px 4px 10px #1e1e1e;
 }
 
@@ -54,11 +62,6 @@ nav .btnNav {
   outline: none;
 }
 
-nav .btnNav img {
-  height: 1.875rem;
-  width: 1.875rem;
-}
-
 nav .btnNav span {
   color: #fefefe;
   font-size: 1.125rem;
@@ -82,9 +85,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   padding: 2rem;
   box-sizing: border-box;
+  margin-left: 15rem;
+  width: 100%;
 }
 
 main .title {
@@ -188,16 +192,18 @@ form {
   justify-content: center;
 }
 
-#image-selector {
+#image-selector , #image-selector2 , #image-selector3 , #image-selector4 , #image-selector5 {
   display: none;
 }
 
-#preview {
+#preview , #preview2 , #preview3 , #preview4 , #preview5 {
   position: static;
   border-radius: 10%;
   width: 11.25rem;
   height: 11.25rem;
   margin: 0.6rem;
+  /* background-size: cover; */
+  object-fit: scale-down;
 }
 
 label {
@@ -208,52 +214,4 @@ label {
   color: #fff;
   cursor: pointer;
   border-radius: 20px;
-}
-
-#preview2 {
-  position: static;
-  border-radius: 10%;
-  width: 11.25rem;
-  height: 11.25rem;
-  margin: 0.6rem;
-}
-
-#image-selector2 {
-  display: none;
-}
-
-#preview3 {
-  position: static;
-  border-radius: 10%;
-  width: 11.25rem;
-  height: 11.25rem;
-  margin: 0.6rem;
-}
-
-#image-selector3 {
-  display: none;
-}
-
-#preview4 {
-  position: static;
-  border-radius: 10%;
-  width: 11.25rem;
-  height: 11.25rem;
-  margin: 0.6rem;
-}
-
-#image-selector4 {
-  display: none;
-}
-
-#preview5 {
-  position: static;
-  border-radius: 10%;
-  width: 11.25rem;
-  height: 11.25rem;
-  margin: 0.6rem;
-}
-
-#image-selector5 {
-  display: none;
 }
