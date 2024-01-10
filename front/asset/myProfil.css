@@ -195,14 +195,14 @@ form {
 #preview {
   position: static;
   border-radius: 10%;
-  width: 180px;
-  height: 180px;
+  width: 11.25rem;
+  height: 11.25rem;
   margin: 0.6rem;
 }
 
 label {
   position: static;
-  padding: 10px 15px;
+  padding: 0.625rem 0.938rem;
   background-color: #ba62ff;
   border: 3px solid #000;
   color: #fff;
@@ -213,8 +213,8 @@ label {
 #preview2 {
   position: static;
   border-radius: 10%;
-  width: 180px;
-  height: 180px;
+  width: 11.25rem;
+  height: 11.25rem;
   margin: 0.6rem;
 }
 
@@ -225,8 +225,8 @@ label {
 #preview3 {
   position: static;
   border-radius: 10%;
-  width: 180px;
-  height: 180px;
+  width: 11.25rem;
+  height: 11.25rem;
   margin: 0.6rem;
 }
 
@@ -237,8 +237,8 @@ label {
 #preview4 {
   position: static;
   border-radius: 10%;
-  width: 180px;
-  height: 180px;
+  width: 11.25rem;
+  height: 11.25rem;
   margin: 0.6rem;
 }
 
@@ -249,8 +249,8 @@ label {
 #preview5 {
   position: static;
   border-radius: 10%;
-  width: 180px;
-  height: 180px;
+  width: 11.25rem;
+  height: 11.25rem;
   margin: 0.6rem;
 }
 
