@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ylover | My Profil</title>
     <link rel="stylesheet" href="./asset/myProfil.css" />
+    <link rel="shortcut icon" href="/front/asset/img/logo.png" type="image/x-icon">
   </head>
   <body>
     <nav>
@@ -26,7 +27,56 @@
       <a href="/register" class="deco">Se déconecter</a>
     </nav>
     <main>
-      <div class="card"></div>
+        <h1 class="title">Profil</h1>
+        <form>
+          <div class="haut-form">
+            <input class="input-haut-form" class="input" type="text" placeholder="Nom" />
+            <input class="input-haut-form" class="input" type="text" placeholder="Prénom" />
+          </div>
+          <div class="milieu-form">
+            <input class="input-milieu-form" type="text" placeholder="Description" />
+          </div>
+          <div class="bas-form">
+            <input class="input-pied-form" type="text" placeholder="Filière" />
+            <input class="input-pied-form" type="text" placeholder="Niveau" />
+            <input class="input-pied-form" type="text" placeholder="Ville" />
+            <input class="input-pied-form" type="text" placeholder="Age" />
+          </div>
+        </form>
+        <div class="img-profil">
+          <div class="select-img">
+            <img id="preview" alt="">
+            <input type="file" id="image-selector" accept="image/*" onchange="showPreview()">
+            <label for="image-selector">Sélectionner une image</label>
+          </div>
+
+          <div class="select-img">
+            <img id="preview2" alt="">
+            <input type="file" id="image-selector2" accept="image/*" onchange="showPreview2()">
+            <label for="image-selector2">Sélectionner une image</label>
+          </div>
+
+          <div class="select-img">
+            <img id="preview3" alt="">
+            <input type="file" id="image-selector3" accept="image/*" onchange="showPreview3()">
+            <label for="image-selector3">Sélectionner une image</label>
+          </div>
+
+          <div class="select-img">
+            <img id="preview4" alt="">
+            <input type="file" id="image-selector4" accept="image/*" onchange="showPreview4()">
+            <label for="image-selector4">Sélectionner une image</label>
+          </div>
+
+          <div class="select-img">
+            <img id="preview5" alt="">
+            <input type="file" id="image-selector5" accept="image/*" onchange="showPreview5()">
+            <label for="image-selector5">Sélectionner une image</label>
+          </div>
+        </div>
+        
     </main>
+
+    <script src="/front/asset/js/main.js"></script>
   </body>
 </html>
