@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 
 <head>
-    <title>My Website</title>
-    <style>
-        *,
-        html {
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        html {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background-color: rgb(236, 152, 42);
-        }
-
-        .center {
-            width: 100%;
-            height: 50%;
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: "Trebuchet MS", Helvetica, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 144px;
-        }
-
-        p {
-            font-size: 64px;
-        }
-    </style>
+    <title>Ynov - Connexion</title>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="stylesheet" href="/asset/index.css"/><link rel="icon" href="/favicon.ico" type="image/x-icon"/><script type="text/javascript" src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/asset/index.css">
 </head>
-
-<body>
-    <div class="center">
-        <h1>Hello Again!</h1>
-        <p>This is served from a file</p>
+<body class="login">
+    <header role="banner">
+</header>
+    <main role="main">
+        <div id="content">
+    <div class="box">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <p class="logo_container">
+                    <img class="logo" src="images/logo_ynov_campus_blanc.svg" /></p>
+                <h3 class="desktop-only">Bienvenue dans la communauté Ynov</h3>
+                <p class="desktop-only">
+                    Candidats, Etudiants, Professeurs et Entreprises : accédez aux outils et services Ynov Campus à l'aide de votre Compte Ynov !
+                </p>
+            </div>
+            <div class="sidebar-footer">
+                <p class="desktop-only">
+                    <a class="button" href="https://monprofil.ynov.com/register">Créer un compte</a>
+                </p>
+            </div>
+        </div>
+        <div class="main">
+            <form id="login" method="post" action="login">
+                <div class="main-title">
+                    <h1>Connexion</h1>
+                </div>
+                <div class="main-error">
+                    <p id="cookiesDisabled" class="warning" style="display: none;">
+                        <strong class="card-title">Cookies navigateur désactivés</strong>
+                        <span class="card-text">Votre navigateur ne supporte pas les cookies. L'authentification centralisée NE FONCTIONNERA PAS.</span>
+                    </p>
+                    </div>
+                <div class="main-content">
+                    <form id="loginForm" method="post" action="/login">
+                    
+                        <div class="field">
+                            <label for="email">E-mail :</label>
+                            <input id="email" type="email" tabindex="1" accesskey="i" autocomplete="off" name="email" required />
+                        </div>
+                    
+                        <div class="field">
+                            <label for="password">Mot de passe :</label>
+                            <input id="password" type="password" tabindex="2" accesskey="m" autocomplete="off" name="password" required />
+                        </div>
+                    
+                        <input type="submit" class="button" tabindex="6" accesskey="l" value="Connexion" />
+                    </form>
+                    <ul>
+                        <li>
+                            <a href="https://monprofil.ynov.com/password">Mot de passe oublié</a>
+                        </li>
+                        <li class="mobile-only">
+                            <a href="https://monprofil.ynov.com/register">Créer un compte</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
     </div>
-</body>
+</div>
+    </main>
+    <footer class="footer" role="contentinfo">
+        <ul>
+            <li>
+                <a href="mailto:support@ynov.com">Support</a>
+            </li>
+            <li>
+                <a href="https://www.ynov.com/mentions-legales/">Mentions légales</a>
+            </li>
+            <li>
+                <a href="https://privacy.ynov.com">Données personnelles</a>
+            </li>
+        </ul>
+    </footer>
+</head>
 
 </html>
