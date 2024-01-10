@@ -1,3 +1,5 @@
+const { handleLogin } = require('./conection ');
+const express = require('express');
 const http = require("http");
 const fs = require('fs').promises;
 const path = require('path');
@@ -9,6 +11,29 @@ const dbPath = path.join(__dirname, 'ylover.db');
 
 // Création de la connexion à la base de données
 const db = new sqlite3.Database(dbPath);
+
+const app = express();
+
+// Configuration pour utiliser EJS comme moteur de modèle
+app.set('view engine', 'ejs');
+
+
+// Route pour afficher les données dans une autre page HTML
+app.get('/cards', (req, res) => {
+    // Exemple de requête SQL pour récupérer des données
+    const query = 'SELECT * FROM user';
+
+    db.all(query, (err, rows) => {
+        if (err) {
+            console.error('Erreur lors de la récupération des données :', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // Rendre le modèle EJS avec les données
+        res.render('cards', { cards: rows });
+    });
+});
 
 const requestListener = function (req, res) {
   let filePath;
@@ -62,56 +87,7 @@ const serveStaticFile = async function (filePath, res) {
     }
 };
 
-const handleLogin = async function (req, res) {
-    try {
-        let body = '';
 
-        req.on('data', (chunk) => {
-            body += chunk.toString();
-        });
-
-        req.on('end', () => {
-            const formData = querystring.parse(body);
-
-            const { email, password_hash } = formData;
-
-            // Requête pour récupérer les informations de l'utilisateur depuis la base de données SQLite
-            const query = 'SELECT password_hash FROM user WHERE email = ?';
-            db.get(query, [email], (err, row) => {
-                if (err) {
-                    console.error('Erreur lors de la requête à la base de données:', err);
-                    res.writeHead(500, { 'Content-Type': 'text/plain' });
-                    res.end('Internal Server Error');
-                    return;
-                }
-
-                // Vérifier si l'utilisateur existe
-                if (row) {
-                    console.log(row.password_hash);
-
-                    // Vérifier les informations d'identification
-                    if (row.password_hash === formData.password) {
-                        // Connexion réussie
-                        res.writeHead(200, { 'Content-Type': 'text/plain' });
-                        res.end('Login successful');
-                    } else {
-                        // Échec de la connexion
-                        res.writeHead(401, { 'Content-Type': 'text/plain' });
-                        res.end('Invalid credentials');
-                    }
-                } else {
-                    // Utilisateur non trouvé
-                    res.writeHead(401, { 'Content-Type': 'text/plain' });
-                    res.end('User not found');
-                }
-            });
-        });
-    } catch (err) {
-        console.error(`Error handling login: ${err.message}`);
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error');
-    }
-};
 
 
 
