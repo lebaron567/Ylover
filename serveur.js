@@ -36,27 +36,8 @@ const requestListener = async function (req, res) {
       filePath = path.join(__dirname, "front", "index.html");
       break;
     case "/discover":
-      try {
-        const cardsData = await getUsers(); // Utilisez await ici pour obtenir les données de manière asynchrone
-        console.log(cardsData);
-
-        filePath = path.join(__dirname, "front", "discover.html");
-        let fileContent = await fs.readFile(filePath, "utf-8");
-
-        // Remplacer les marqueurs de substitution avec les données des utilisateurs
-        fileContent = fileContent.replace(
-          "const cardsData = [];",
-          `const cardsData = ${cardsData};`
-        );
-
-        // Répondre avec la page modifiée
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(fileContent);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des données :", error);
-        res.writeHead(500, { "Content-Type": "text/plain" });
-        res.end("Internal Server Error");
-      }
+      filePath = path.join(__dirname, 'front', 'discover.html');
+      await donner(req, res, filePath)
       break;
     case "/matchs":
       filePath = path.join(__dirname, "front", "matchs.html");
@@ -85,6 +66,29 @@ const requestListener = async function (req, res) {
     serveStaticFile(filePath, res);
   }
 };
+async function donner(req, res, filePath) {
+  try {
+      const cardsData = await getUsers();
+      let fileContent = await fs.readFile(filePath, 'utf-8');
+      cardsData
+      fileContent = fileContent.replace('const cardsData = [];', `const cardsData = ${cardsData};`);
+
+      // Vérifier si la réponse n'a pas déjà été envoyée
+      if (!res.headersSent) {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(fileContent);
+      }
+  } catch (error) {
+      console.error('Erreur lors de la récupération des données :', error);
+
+      // Vérifier si la réponse n'a pas déjà été envoyée
+      if (!res.headersSent) {
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          res.end('Internal Server Error');
+      }
+  }
+}
+
 
 const serveStaticFile = async function (filePath, res) {
   try {
