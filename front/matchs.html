@@ -36,31 +36,40 @@
     <main>
       <h1 class="titlePage">Match(s)</h1>
       <section class="matchDeFoot">
-        <!-- Card -->
-        <div class="card">
-          <div class="triangle"></div>
-          <img class="imgProfil" src="./asset/img/john.jpg" alt="" />
-          <section class="cardInfo">
-            <h2 class="title">
-              <span class="name">John</span><span class="age"> 18</span>
-            </h2>
-            <li>
-              <img
-                class="icon"
-                src="./asset/img/instagram.png"
-                alt=""
-              />john_doe
-            </li>
-            <li>
-              <img class="icon" src="./asset/img/snap.png" alt="" />john_doe
-            </li>
-            <div class="btnsCard">
-              <a href="/profil"
-                ><img class="icon" src="./asset/img/more.png" alt=""
-              /></a>
-            </div>
-          </section>
-        </div>
+        <script>
+          // Données simulées pour les cartes (à remplacer par vos données réelles)
+          const cardsData = [];
+      
+          // Sélectionnez la section où vous souhaitez ajouter les nouvelles cartes
+          const matchDeFootSection = document.getElementById('matchDeFoot');
+      
+          // Construisez une chaîne HTML pour chaque carte et ajoutez-la à la section
+          cardsData.forEach(card => {
+    const cardHTML = `
+      <div class="card">
+        <div class="triangle"></div>
+        <img class="imgProfil" src="./asset/img/john.jpg" alt="" />
+        <section class="cardInfo">
+          <h2 class="title">
+            <span class="name">${card.name}</span><span class="age"> ${card.age}</span>
+          </h2>
+          <li>
+            <img class="icon" src="./asset/img/instagram.png" alt="" />${card.instagram}
+          </li>
+          <li>
+            <img class="icon" src="./asset/img/snap.png" alt="" />${card.snap}
+          </li>
+          <div class="btnsCard">
+            <a href=""><img class="icon" src="./asset/img/more.png" alt="" /></a>
+          </div>
+        </section>
+      </div>
+    `;
+
+    // Ajoutez la carte créée à la section
+    matchDeFootSection.innerHTML += cardHTML;
+  });
+        </script>
 
         <!-- Card -->
         <div class="card">
