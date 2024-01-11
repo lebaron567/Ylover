@@ -246,17 +246,31 @@ main {
   .card .pisctures {
     flex-direction: column;
     margin-bottom: 5em;
+    padding: 1em;
+    background-color: #fefefe;
+    border-radius: 30px;
   }
   .card .imgProfil {
     height: 30em;
     width: 100%;
+    margin-right: 0;
   }
   .card .cardInfo {
     margin-left: 0;
     width: 70%;
   }
   .triangle {
-    border-width: 37.1rem 16.8em 0 0;
+    display: none;
+  }
+  .card .cardInfo .description {
+    width: 80%;
+    border: solid 4px #fefefe;
+    padding: 1em;
+    border-radius: 30px;
+  }
+  .card .cardInfo .title {
+    border-bottom: solid 4px #fefefe;
+    border-radius: 8px;
   }
 }
 
