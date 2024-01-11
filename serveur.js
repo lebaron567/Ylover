@@ -1,4 +1,4 @@
-const { handleLogin } = require("./conection ");
+const { handleLogin } = require("./script/conection ");
 const http = require("http");
 const fs = require("fs").promises;
 const path = require("path");
@@ -33,14 +33,14 @@ const requestListener = async function (req, res) {
   let filePath;
   switch (req.url) {
     case "/":
-      filePath = path.join(__dirname, "front", "index.html");
+      filePath = path.join(__dirname, "front", "html", "index.html");
       break;
     case "/discover":
       try {
         const cardsData = await getUsers(); // Utilisez await ici pour obtenir les données de manière asynchrone
         console.log(cardsData);
 
-        filePath = path.join(__dirname, "front", "discover.html");
+        filePath = path.join(__dirname, "front", "html", "discover.html");
         let fileContent = await fs.readFile(filePath, "utf-8");
 
         // Remplacer les marqueurs de substitution avec les données des utilisateurs
@@ -59,19 +59,19 @@ const requestListener = async function (req, res) {
       }
       break;
     case "/matchs":
-      filePath = path.join(__dirname, "front", "matchs.html");
+      filePath = path.join(__dirname, "front", "html", "matchs.html");
       break;
     case "/likes":
-      filePath = path.join(__dirname, "front", "likes.html");
+      filePath = path.join(__dirname, "front", "html", "likes.html");
       break;
     case "/profil":
-      filePath = path.join(__dirname, "front", "profil.html");
+      filePath = path.join(__dirname, "front", "html", "profil.html");
       break;
     case "/register":
-      filePath = path.join(__dirname, "front", "index.html");
+      filePath = path.join(__dirname, "front", "html", "index.html");
       break;
     case "/myProfil":
-      filePath = path.join(__dirname, "front", "myProfil.html");
+      filePath = path.join(__dirname, "front", "html", "myProfil.html");
       break;
     default:
       filePath = path.join(__dirname, "front", req.url);
