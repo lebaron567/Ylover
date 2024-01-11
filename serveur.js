@@ -1,10 +1,11 @@
 const { handleLogin } = require('./conection ');
-const express = require('express');
 const http = require("http");
 const fs = require('fs').promises;
 const path = require('path');
 const querystring = require('querystring');
 const sqlite3 = require('sqlite3').verbose();
+
+
 
 // Configuration du chemin de la base de données SQLite
 const dbPath = path.join(__dirname, 'ylover.db');
@@ -12,38 +13,52 @@ const dbPath = path.join(__dirname, 'ylover.db');
 // Création de la connexion à la base de données
 const db = new sqlite3.Database(dbPath);
 
-const app = express();
 
-// Configuration pour utiliser EJS comme moteur de modèle
-app.set('view engine', 'ejs');
+function getUsers() {
+  return new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM user';
+      console.log("fg")
+      db.all(query, (err, rows) => {
+          if (err) {
+              console.error('Erreur lors de la récupération des données :', err);
+              reject(err);
+              return;
+          }
+
+          const jsonData = JSON.stringify(rows);
+          console.log(jsonData);
+          resolve(jsonData);
+      });
+  });
+}
 
 
-// Route pour afficher les données dans une autre page HTML
-app.get('/cards', (req, res) => {
-    // Exemple de requête SQL pour récupérer des données
-    const query = 'SELECT * FROM user';
 
-    db.all(query, (err, rows) => {
-        if (err) {
-            console.error('Erreur lors de la récupération des données :', err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-
-        // Rendre le modèle EJS avec les données
-        res.render('cards', { cards: rows });
-    });
-});
-
-const requestListener = function (req, res) {
+const requestListener = async function  (req, res) {
   let filePath;
-
   if (req.url === "/") {
-    // Si l'URL se termine par '/', servez index.html
-    filePath = path.join(__dirname, "front", "index.html");
-  } else if (req.url === "/discover") {
-    // Si l'URL se termine par '/discover', servez discover.html
-    filePath = path.join(__dirname, "front", "discover.html");
+      // Si l'URL se termine par '/', servez index.html
+      filePath = path.join(__dirname, "front", "index.html");
+    } else if (req.url === "/discover") {
+      // Si l'URL se termine par '/discover', servez discover.html
+      try {
+        const cardsData = await getUsers(); // Utilisez await ici pour obtenir les données de manière asynchrone
+        console.log(cardsData);
+
+        filePath = path.join(__dirname, 'front', 'discover.html');
+        let fileContent = await fs.readFile(filePath, 'utf-8');
+
+        // Remplacer les marqueurs de substitution avec les données des utilisateurs
+        fileContent = fileContent.replace('const cardsData = [];', `const cardsData = ${cardsData};`);
+
+        // Répondre avec la page modifiée
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(fileContent);
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données :', error);
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Internal Server Error');
+    }
   } else if (req.url === "/matchs") {
     // Si l'URL se termine par '/matchs', servez matchs.html
     filePath = path.join(__dirname, "front", "matchs.html");
@@ -112,3 +127,4 @@ const server = http.createServer(requestListener);
 server.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });
+module.exports = { getUsers };
