@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ylover | Discover</title>
+    <link
+      rel="shortcut icon"
+      href="./asset/img/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./asset/discover_likes.css" />
   </head>
   <body>
@@ -32,99 +37,98 @@
         </a>
       </ul>
       <!-- button to wordRandom.js -->
-      <button class="deco" id="randomWord">Défi mot a placer</button>
+      <button id="randomWord">Défi mot a placer</button>
       <a href="/register" class="deco">Se déconnecter</a>
     </nav>
-    
+
     <main>
       <h1 class="titlePage">L'exploreur</h1>
-      <section class="cards" id ="matchDeFoot">
+      <section class="cards" id="matchDeFoot">
         <!-- <% cards.forEach(card => { %> -->
         <!-- Card -->
         <script>
           // Données simulées pour les cartes (à remplacer par vos données réelles)
           // Sélectionnez la section où vous souhaitez ajouter les nouvelles cartes
-          const matchDeFootSection = document.getElementById('matchDeFoot');
+          const matchDeFootSection = document.getElementById("matchDeFoot");
           const cardsData = [];
           // Parcourez les données et créez dynamiquement les cartes
-          cardsData.forEach(card => {
+          cardsData.forEach((card) => {
             // Créez les éléments de la carte
-            const cardElement = document.createElement('div');
-            cardElement.classList.add('card');
-      
-            const triangleElement = document.createElement('div');
-            triangleElement.classList.add('triangle');
+            const cardElement = document.createElement("div");
+            cardElement.classList.add("card");
+
+            const triangleElement = document.createElement("div");
+            triangleElement.classList.add("triangle");
             cardElement.appendChild(triangleElement);
-      
-            const imgProfilElement = document.createElement('img');
-            imgProfilElement.classList.add('imgProfil');
-            imgProfilElement.src = "./asset/img/john.jpg",
-            imgProfilElement.alt = '';
+
+            const imgProfilElement = document.createElement("img");
+            imgProfilElement.classList.add("imgProfil");
+            (imgProfilElement.src = "./asset/img/john.jpg"),
+              (imgProfilElement.alt = "");
             cardElement.appendChild(imgProfilElement);
-      
-            const cardInfoElement = document.createElement('section');
-            cardInfoElement.classList.add('cardInfo');
+
+            const cardInfoElement = document.createElement("section");
+            cardInfoElement.classList.add("cardInfo");
             cardElement.appendChild(cardInfoElement);
-      
-            const titleElement = document.createElement('h2');
-            titleElement.classList.add('title');
+
+            const titleElement = document.createElement("h2");
+            titleElement.classList.add("title");
             cardInfoElement.appendChild(titleElement);
-      
-            const nameElement = document.createElement('span');
-            nameElement.classList.add('name');
+
+            const nameElement = document.createElement("span");
+            nameElement.classList.add("name");
             nameElement.textContent = card.first_name;
             titleElement.appendChild(nameElement);
-      
-            const ageElement = document.createElement('span');
-            ageElement.classList.add('age');
+
+            const ageElement = document.createElement("span");
+            ageElement.classList.add("age");
             ageElement.textContent = card.age;
             titleElement.appendChild(ageElement);
-      
-            const descriptionElement = document.createElement('p');
+
+            const descriptionElement = document.createElement("p");
             descriptionElement.innerHTML = `<span>Description : </span>${card.bio}`;
             cardInfoElement.appendChild(descriptionElement);
-      
-            const majorElement = document.createElement('p');
+
+            const majorElement = document.createElement("p");
             majorElement.innerHTML = `<span>Filière : </span>${card.branch}`;
             cardInfoElement.appendChild(majorElement);
-      
-            const levelElement = document.createElement('p');
+
+            const levelElement = document.createElement("p");
             levelElement.innerHTML = `<span>Niveau : </span>${card.level}`;
             cardInfoElement.appendChild(levelElement);
-      
-            const cityElement = document.createElement('p');
+
+            const cityElement = document.createElement("p");
             cityElement.innerHTML = `<span>Ville : </span>${card.city}`;
             cardInfoElement.appendChild(cityElement);
-      
-            const btnsCardElement = document.createElement('div');
-            btnsCardElement.classList.add('btnsCard');
+
+            const btnsCardElement = document.createElement("div");
+            btnsCardElement.classList.add("btnsCard");
             cardInfoElement.appendChild(btnsCardElement);
-      
-            const profilLinkElement = document.createElement('a');
-            profilLinkElement.href = '/profil';
+
+            const profilLinkElement = document.createElement("a");
+            profilLinkElement.href = "/profil";
             btnsCardElement.appendChild(profilLinkElement);
-      
-            const moreIconElement = document.createElement('img');
-            moreIconElement.classList.add('icon');
-            moreIconElement.src = './asset/img/more.png';
-            moreIconElement.alt = '';
+
+            const moreIconElement = document.createElement("img");
+            moreIconElement.classList.add("icon");
+            moreIconElement.src = "./asset/img/more.png";
+            moreIconElement.alt = "";
             profilLinkElement.appendChild(moreIconElement);
-      
-            const likeLinkElement = document.createElement('a');
-            likeLinkElement.href = '';
+
+            const likeLinkElement = document.createElement("a");
+            likeLinkElement.href = "";
             btnsCardElement.appendChild(likeLinkElement);
-      
-            const likeIconElement = document.createElement('img');
-            likeIconElement.classList.add('icon');
-            likeIconElement.src = './asset/img/like.png';
-            likeIconElement.alt = '';
+
+            const likeIconElement = document.createElement("img");
+            likeIconElement.classList.add("icon");
+            likeIconElement.src = "./asset/img/like.png";
+            likeIconElement.alt = "";
             likeLinkElement.appendChild(likeIconElement);
-      
+
             // Ajoutez la carte créée à la section
             matchDeFootSection.appendChild(cardElement);
           });
         </script>
-        
       </section>
     </main>
   </body>
