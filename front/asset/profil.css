@@ -85,6 +85,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 1em 0 0 0;
 
   margin-left: 15rem;
   width: 100%;
@@ -101,20 +103,19 @@ main {
   border-radius: 30px;
   border: #1e1e1e solid 5px;
   box-shadow: 4px 4px 10px #1e1e1e;
-  margin: 2rem;
   padding: 1rem;
-  height: 50rem;
-  width: 90rem;
+  height: 38.5rem;
+  width: 70rem;
 
   color: #1e1e1e;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .card .imgProfil {
   position: relative;
-  height: 18.125rem;
-  width: 14.375rem;
+  height: 14rem;
+  width: 11rem;
   background-color: #a1a1a1;
   border-radius: 30px;
   margin-right: 1rem;
@@ -133,7 +134,7 @@ main {
 
 .card .cardInfo .title {
   color: #1e1e1e;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   display: flex;
   flex-direction: row;
@@ -145,7 +146,7 @@ main {
 
 .card .cardInfo .description {
   color: #1e1e1e;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   display: flex;
   flex-direction: column;
@@ -155,7 +156,7 @@ main {
 
 .card .cardInfo .HouHouFaitLeHibou {
   color: #1e1e1e;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -189,7 +190,7 @@ main {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 52.1rem 92rem 0 0;
+  border-width: 40.6rem 72rem 0 0;
   border-color: #fefefe transparent #1e1e1e transparent;
   position: absolute;
   border-radius: 25px 25px 0 28px;

@@ -4,6 +4,14 @@ html {
 }
 body {
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  background-image: url("./img/fresque_rvb_couleur_repeat.svg");
+  background-size: 2500px 375px;
 }
 a:hover {
   opacity: 0.8;
@@ -191,8 +199,6 @@ submit:focus {
   margin-left: 5px;
   margin-right: 5px;
 }
-.box .main .main-error {
-}
 .box .main .main-error p {
   color: #ffffff;
   background-color: #000000;
@@ -221,19 +227,19 @@ submit:focus {
 .box .main .main-content {
   margin: 20px;
 }
-.box .main .main-content .form {
+.box .main .main-content {
   width: 400px;
   max-width: 95%;
   margin: 40px auto;
 }
-.box .main .main-content .form .field {
+.box .main .main-content .field {
   margin: 10px;
 }
-.box .main .main-content .form .field label {
+.box .main .main-content .field label {
   display: block;
   text-align: left;
 }
-.box .main .main-content .form .field input {
+.box .main .main-content .field input {
   font-size: 1.2em;
   padding: 10px;
   width: 100%;
@@ -301,7 +307,7 @@ submit:focus {
   overflow: hidden;
   opacity: 0.2;
   z-index: -1;
-  background-image: url("../images/fresque_rvb_couleur_repeat.svg");
+  background-image: url("./img/fresque_rvb_couleur_repeat.svg");
   background-size: 2500px 375px;
 }
 .backdrop {
