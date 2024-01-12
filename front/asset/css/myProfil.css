@@ -218,46 +218,161 @@ label {
 
 /* ------------------- RESPONSIVE------------------- */
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1400px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
   nav {
-    width: 10rem;
+    flex-direction: row;
+    height: 15em;
+    border-radius: 0;
+    width: 100%;
+    z-index: 1;
   }
-
   nav .logo {
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 3rem;
+    margin-top: 0;
+    margin-left: 2rem;
   }
-
-  nav .btnNav span {
-    font-size: 1rem;
+  nav ul {
+    margin-top: 0;
+    display: flex;
   }
-
+  nav .btnNav {
+    flex-direction: row;
+    margin-left: 2rem;
+    margin-top: 0;
+  }
   nav .deco {
-    font-size: 1rem;
+    margin-top: 10rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  main {
+    margin-left: 0;
+    margin-top: 15rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .haut-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;}
+
+  .input-haut-form {
+    width: 14.25rem;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .input-milieu-form {
+    width: 32rem;
+    height: 8rem;
+  }
+
+  .pied-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .input-pied-form {
+    width: 14.6rem;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+  }
+
+  .img-profil {
+    flex-direction: row;
+  }
+
+  .select-img {
+    flex-direction: column;
+  }
+
+  #preview , #preview2 , #preview3 , #preview4 , #preview5 {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  label {
+    position: static;
+    padding: 0.625rem 0.938rem;
+    background-color: #ba62ff;
+    border: 3px solid #000;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  nav {
+    align-items: center;
+    justify-content: center;
+  }
+  nav .logo {
+    display: none;
+  }
+  nav ul {
+    display: flex;
+    margin-top: -3em;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2em;
   }
 
   main {
-    margin-left: 10rem;
-  }
-
-  main .title {
-    font-size: 1.5rem;
-  }
-
-  form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18rem;
+    margin-left: 0;
     width: 100%;
   }
 
   .input-haut-form {
-    width: 20rem;
+    width: 7.25rem;
+    height: 4.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
   }
 
   .input-milieu-form {
-    width: 40rem;
+    width: 15rem;
+    height: 8rem;
   }
 
   .input-pied-form {
-    width: 10rem;
+    width: 14.6rem;
+    height: 4.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
   }
 
   .img-profil {
@@ -265,11 +380,23 @@ label {
   }
 
   .select-img {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   #preview , #preview2 , #preview3 , #preview4 , #preview5 {
-    width: 5rem;
-    height: 5rem;
+    width: 10.25rem;
+    height: 10.25rem;
   }
+
+  label {
+    position: static;
+    padding: 0.625rem 0.938rem;
+    background-color: #ba62ff;
+    border: 3px solid #000;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+  
 }
