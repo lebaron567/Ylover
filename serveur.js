@@ -54,7 +54,7 @@ const requestListener = async function (req, res) {
       filePath = path.join(__dirname, "front", "html", "myProfil.html");
       if (req.method === "POST") {
         dataSend(req, res, filePath);
-        filePath = path.join(__dirname, "front", "html", "myProfil.html");
+        return;
       }
       break;
     default:
