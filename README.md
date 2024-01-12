@@ -23,7 +23,7 @@ Les personnes ayant travaillé sur Ylover :
 ## Fonctionnalités
 
 - [x] `Affichage des données d'utilisateurs`
-- [x] `Possibilité de liker`
+- [ ] `Possibilité de liker`
 - [x] `Modifier son profil`
 - [ ] `Fonctionnalité de matchs`
 - [ ] `2 likes par jour`

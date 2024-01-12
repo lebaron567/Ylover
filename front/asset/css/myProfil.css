@@ -281,7 +281,7 @@ label {
     transform: translate(-50%, -50%);
     position: absolute;
   }
-  
+
   main {
     margin-left: 0;
     margin-top: 15rem;
@@ -297,7 +297,8 @@ label {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 1rem;}
+    gap: 1rem;
+  }
 
   .input-haut-form {
     width: 14.25rem;
@@ -338,7 +339,11 @@ label {
     flex-direction: column;
   }
 
-  #preview , #preview2 , #preview3 , #preview4 , #preview5 {
+  #preview,
+  #preview2,
+  #preview3,
+  #preview4,
+  #preview5 {
     width: 6.25rem;
     height: 6.25rem;
   }
@@ -380,6 +385,10 @@ label {
     width: 100%;
   }
 
+  .haut-form {
+    flex-direction: column;
+  }
+
   .input-haut-form {
     width: 7.25rem;
     height: 4.375rem;
@@ -413,7 +422,11 @@ label {
     flex-direction: column;
   }
 
-  #preview , #preview2 , #preview3 , #preview4 , #preview5 {
+  #preview,
+  #preview2,
+  #preview3,
+  #preview4,
+  #preview5 {
     width: 10.25rem;
     height: 10.25rem;
   }
@@ -428,5 +441,4 @@ label {
     border-radius: 20px;
     font-size: 0.8rem;
   }
-  
 }
