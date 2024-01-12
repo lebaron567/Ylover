@@ -40,18 +40,23 @@
     </nav>
     <main>
       <h1 class="title">Profil</h1>
-      <form>
+      <form method="post">
         <div class="haut-form">
           <input
             class="input-haut-form"
             class="input"
             type="text"
+            id="nom"
+            name="last_name"
             placeholder="Nom"
           />
+          <button class="submit" type="submit" onclick="dataRecovery()" ><img class="icon" src="../asset/img/check.png" alt=""></button>
           <input
             class="input-haut-form"
             class="input"
             type="text"
+            id="prenom"
+            name="first_name"
             placeholder="Prénom"
           />
         </div>
@@ -59,16 +64,18 @@
           <input
             class="input-milieu-form"
             type="text"
+            id="description"
+            name="bio"
             placeholder="Description"
           />
         </div>
         <div class="bas-form">
-          <input class="input-pied-form" type="text" placeholder="Filière" />
-          <input class="input-pied-form" type="text" placeholder="Niveau" />
-          <input class="input-pied-form" type="text" placeholder="Ville" />
-          <input class="input-pied-form" type="text" placeholder="Age" />
+          <input class="input-pied-form" type="text" id="filière" name="branch" placeholder="Filière" />
+          <input class="input-pied-form" type="text" id="niveau" name="level" placeholder="Niveau" />
+          <input class="input-pied-form" type="text" id="ville" name="city" placeholder="Ville" />
+          <input class="input-pied-form" type="text" id="age" name="age" placeholder="Age" />
         </div>
-      </form>
+      
       <div class="img-profil">
         <div class="select-img">
           <img id="preview" alt="" />
@@ -124,6 +131,7 @@
           />
           <label for="image-selector5">Sélectionner une image</label>
         </div>
+      </form>
       </div>
     </main>
 

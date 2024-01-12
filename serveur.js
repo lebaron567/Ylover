@@ -1,5 +1,6 @@
 const { addLike } = require("./script/like");
 const { handleLogin } = require("./script/conection ");
+const { dataSend } = require("./script/profilRecovery");
 const http = require("http");
 const fs = require("fs").promises;
 const path = require("path");
@@ -37,10 +38,6 @@ const requestListener = async function (req, res) {
     case "/discover":
       filePath = path.join(__dirname, 'front', "html", 'discover.html');
       await donner(req, res, filePath)
-      if(req.method === "POST"){
-        addLike()
-        console.log("ddd")
-      }
       break;
     case "/matchs":
       filePath = path.join(__dirname, "front", "html", "matchs.html");
@@ -57,6 +54,10 @@ const requestListener = async function (req, res) {
       break;
     case "/myProfil":
       filePath = path.join(__dirname, "front", "html", "myProfil.html");
+      if (req.method === "POST") {
+        dataSend(req, res, filePath);
+        return;
+      }
       break;
     default:
       filePath = path.join(__dirname, "front", req.url);
@@ -64,35 +65,38 @@ const requestListener = async function (req, res) {
 
   if (req.method === "POST" && req.url === "/login") {
     // Si c'est une requête POST à /login, traitez-la ici
-    handleLogin(req, res);
+    await handleLogin(req, res);
   } else {
     // Sinon, servez le fichier statique comme d'habitude
     serveStaticFile(filePath, res);
   }
 };
+
 async function donner(req, res, filePath) {
   try {
-      const cardsData = await getUsers();
-      let fileContent = await fs.readFile(filePath, 'utf-8');
-      cardsData
-      fileContent = fileContent.replace('const cardsData = [];', `const cardsData = ${cardsData};`);
+    const cardsData = await getUsers();
+    let fileContent = await fs.readFile(filePath, "utf-8");
+    cardsData;
+    fileContent = fileContent.replace(
+      "const cardsData = [];",
+      `const cardsData = ${cardsData};`
+    );
 
-      // Vérifier si la réponse n'a pas déjà été envoyée
-      if (!res.headersSent) {
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(fileContent);
-      }
+    // Vérifier si la réponse n'a pas déjà été envoyée
+    if (!res.headersSent) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(fileContent);
+    }
   } catch (error) {
-      console.error('Erreur lors de la récupération des données :', error);
+    console.error("Erreur lors de la récupération des données :", error);
 
-      // Vérifier si la réponse n'a pas déjà été envoyée
-      if (!res.headersSent) {
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
-          res.end('Internal Server Error');
-      }
+    // Vérifier si la réponse n'a pas déjà été envoyée
+    if (!res.headersSent) {
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
+    }
   }
 }
-
 
 const serveStaticFile = async function (filePath, res) {
   try {

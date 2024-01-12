@@ -3,12 +3,16 @@ const fs = require("fs").promises;
 const path = require("path");
 const querystring = require("querystring");
 const sqlite3 = require("sqlite3").verbose();
+const LocalStorage = require("node-localstorage").LocalStorage;
+const localStorage = new LocalStorage("./scratch");
 
 // Configuration du chemin de la base de données SQLite
 const dbPath = path.join(__dirname, "../", "ylover.db");
 
 // Création de la connexion à la base de données
 const db = new sqlite3.Database(dbPath);
+
+let idUser;
 
 const handleLogin = async function (req, res, formData) {
   try {
@@ -24,7 +28,7 @@ const handleLogin = async function (req, res, formData) {
       const { email, password_hash } = formData;
 
       // Requête pour récupérer les informations de l'utilisateur depuis la base de données SQLite
-      const query = "SELECT password_hash FROM user WHERE email = ?";
+      const query = "SELECT id, password_hash FROM user WHERE email = ?";
       db.get(query, [email], (err, row) => {
         if (err) {
           console.error("Erreur lors de la requête à la base de données:", err);
@@ -35,13 +39,13 @@ const handleLogin = async function (req, res, formData) {
 
         // Vérifier si l'utilisateur existe
         if (row) {
-          console.log(row.password_hash);
-
           // Vérifier les informations d'identification
           if (row.password_hash === formData.password) {
             // Connexion réussie
             res.writeHead(302, { Location: "/discover" });
             res.end();
+            idUser = row.id;
+            localStorage.setItem("idUser", idUser);
           } else {
             // Échec de la connexion
             res.writeHead(302, { Location: "/" });
