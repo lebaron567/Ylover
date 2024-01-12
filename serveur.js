@@ -94,13 +94,17 @@ const serveStaticFile = async function (filePath, res) {
   try {
     const contents = await fs.readFile(filePath);
     const contentType = getContentType(filePath);
-    res.setHeader("Content-Type", contentType);
-    res.writeHead(200);
-    res.end(contents);
+    if (!res.headersSent) {
+      res.setHeader("Content-Type", contentType);
+      res.writeHead(200);
+      res.end(contents);
+  }
   } catch (err) {
     console.error(`Error reading file: ${err.message}`);
+    if (!res.headersSent) {
     res.writeHead(500, { "Content-Type": "text/plain" });
     res.end("Internal Server Error");
+    }
   }
 };
 
