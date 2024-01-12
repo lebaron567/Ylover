@@ -19,6 +19,11 @@ body {
   width: 1.875rem;
 }
 
+.like-button {
+  background: none;
+  border: none;
+}
+
 /* ------------------- NAVBAR ------------------- */
 
 nav {

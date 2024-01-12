@@ -1,10 +1,6 @@
-const http = require("http");
-const fs = require("fs").promises;
 const path = require("path");
 const querystring = require("querystring");
 const sqlite3 = require("sqlite3").verbose();
-const LocalStorage = require("node-localstorage").LocalStorage;
-const localStorage = new LocalStorage("./scratch");
 
 // Configuration du chemin de la base de données SQLite
 const dbPath = path.join(__dirname, "../", "ylover.db");
@@ -12,11 +8,10 @@ const dbPath = path.join(__dirname, "../", "ylover.db");
 // Création de la connexion à la base de données
 const db = new sqlite3.Database(dbPath);
 
-let idUser;
-
-const handleLogin = async function (req, res, formData) {
+const addLike = async function (req, res, formData) {
   try {
     let body = "";
+    console.log("data")
 
     req.on("data", (chunk) => {
       body += chunk.toString();
@@ -25,11 +20,11 @@ const handleLogin = async function (req, res, formData) {
     req.on("end", () => {
       const formData = querystring.parse(body);
 
-      const { email, password_hash } = formData;
+      const { data } = formData;
 
-      // Requête pour récupérer les informations de l'utilisateur depuis la base de données SQLite
-      const query = "SELECT id, password_hash FROM user WHERE email = ?";
-      db.get(query, [email], (err, row) => {
+     // Requête pour récupérer les informations de l'utilisateur depuis la base de données SQLite
+      const query = "SELECT password_hash FROM user WHERE email = ?";
+      db .get(query, [email], (err, row) => {
         if (err) {
           console.error("Erreur lors de la requête à la base de données:", err);
           res.writeHead(500, { "Content-Type": "text/plain" });
@@ -39,13 +34,13 @@ const handleLogin = async function (req, res, formData) {
 
         // Vérifier si l'utilisateur existe
         if (row) {
+          console.log(row.password_hash);
+
           // Vérifier les informations d'identification
           if (row.password_hash === formData.password) {
             // Connexion réussie
             res.writeHead(302, { Location: "/discover" });
             res.end();
-            idUser = row.id;
-            localStorage.setItem("idUser", idUser);
           } else {
             // Échec de la connexion
             res.writeHead(302, { Location: "/" });
@@ -53,7 +48,7 @@ const handleLogin = async function (req, res, formData) {
           }
         } else {
           // Utilisateur non trouvé
-          res.writeHead(302, { Location: "/" });
+          res.writeHead(401, { "Content-Type": "text/plain" });
           res.end("User not found");
         }
       });
@@ -63,35 +58,6 @@ const handleLogin = async function (req, res, formData) {
     res.writeHead(500, { "Content-Type": "text/plain" });
     res.end("Internal Server Error");
   }
-};
-
-function conection(parametre1, parametre2) {
-  let resultat = 0;
-  for (let i = 0; i < 10; i++) {
-    resultat += Math.random() * 100;
-  }
-
-  if (parametre1 > parametre2) {
-    resultat *= parametre1;
-  } else {
-    resultat *= parametre2;
-  }
-
-  for (let j = 0; j < 5; j++) {
-    resultat /= Math.random() * 50;
-  }
-  if (resultat > 100) {
-    resultat -= 50;
-  } else {
-    resultat += 50;
-  }
-  let k = 0;
-  while (k < 3) {
-    resultat = Math.pow(resultat, 2);
-    k++;
-  }
-
-  return resultat;
 }
 
-module.exports = { handleLogin };
+module.exports = { addLike };

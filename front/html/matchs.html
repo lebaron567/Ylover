@@ -40,110 +40,66 @@
     </nav>
     <main>
       <h1 class="titlePage">Match(s)</h1>
-      <section class="matchDeFoot">
-        <!-- Card -->
-        <div class="card">
-          <div class="triangle"></div>
-          <img class="imgProfil" src="../asset/img/john.jpg" alt="" />
-          <section class="cardInfo">
-            <h2 class="title">
-              <span class="name">John</span><span class="age"> 18</span>
-            </h2>
-            <li>
-              <img
-                class="icon"
-                src="../asset/img/instagram.png"
-                alt=""
-              />john_doe
-            </li>
-            <li>
-              <img class="icon" src="../asset/img/snap.png" alt="" />john_doe
-            </li>
-            <div class="btnsCard">
-              <a href="/profil"
-                ><img class="icon" src="../asset/img/more.png" alt=""
-              /></a>
-            </div>
-          </section>
-        </div>
+      <section class="matchDeFoot" id="matchDeFoot">
+        <script>
+          // Données simulées pour les cartes (à remplacer par vos données réelles)
+          const cardsData = [];
+          console.log(cardsData)
+        
+          // Sélectionnez la section où vous souhaitez ajouter les nouvelles cartes
+          const matchDeFootSection = document.getElementById('matchDeFoot');
+        
+          // Boucle sur les données pour créer et ajouter dynamiquement des cartes à la section
+          cardsData.forEach(card => {
+            const cardElement = createCardElement(card);
+            matchDeFootSection.appendChild(cardElement);
+          });
+        
+          // Fonction pour créer une carte en tant qu'élément HTML
+          function createCardElement(cardData) {
+            const card = document.createElement('div');
+            card.className = 'card';
+        
+            const triangle = document.createElement('div');
+            triangle.className = 'triangle';
+            card.appendChild(triangle);
+        
+            const imgProfil = document.createElement('img');
+            imgProfil.className = 'imgProfil';
+            imgProfil.src = '../asset/img/john.jpg'; // Remplacez par la vraie source de l'image
+            imgProfil.alt = '';
+            card.appendChild(imgProfil);
+        
+            const cardInfo = document.createElement('section');
+            cardInfo.className = 'cardInfo';
+        
+            const title = document.createElement('h2');
+            title.className = 'title';
+            title.innerHTML = `<span class="name">${cardData.first_name}</span><span class="age">${cardData.age}</span>`;
+            cardInfo.appendChild(title);
+        
+            const li1 = document.createElement('li');
+            li1.innerHTML = `<img class="icon" src="../asset/img/instagram.png" alt="" />${cardData.instagram}`;
+            cardInfo.appendChild(li1);
+        
+            const li2 = document.createElement('li');
+            li2.innerHTML = `<img class="icon" src="../asset/img/snap.png" alt="" />${cardData.snap}`;
+            cardInfo.appendChild(li2);
+        
+            const btnsCard = document.createElement('div');
+            btnsCard.className = 'btnsCard';
+            const link = document.createElement('a');
+            link.href = '/profil';
+            link.innerHTML = `<img class="icon" src="../asset/img/more.png" alt="" />`;
+            btnsCard.appendChild(link);
+        
+            cardInfo.appendChild(btnsCard);
+            card.appendChild(cardInfo);
+        
+            return card;
+          }
+        </script>
 
-        <!-- Card -->
-        <div class="card">
-          <div class="triangle"></div>
-          <img class="imgProfil" src="../asset/img/john.jpg" alt="" />
-          <section class="cardInfo">
-            <h2 class="title">
-              <span class="name">John</span><span class="age"> 18</span>
-            </h2>
-            <li>
-              <img
-                class="icon"
-                src="../asset/img/instagram.png"
-                alt=""
-              />john_doe
-            </li>
-            <li>
-              <img class="icon" src="../asset/img/snap.png" alt="" />john_doe
-            </li>
-            <div class="btnsCard">
-              <a href=""
-                ><img class="icon" src="../asset/img/more.png" alt=""
-              /></a>
-            </div>
-          </section>
-        </div>
-
-        <!-- Card -->
-        <div class="card">
-          <div class="triangle"></div>
-          <img class="imgProfil" src="../asset/img/john.jpg" alt="" />
-          <section class="cardInfo">
-            <h2 class="title">
-              <span class="name">John</span><span class="age"> 18</span>
-            </h2>
-            <li>
-              <img
-                class="icon"
-                src="../asset/img/instagram.png"
-                alt=""
-              />john_doe
-            </li>
-            <li>
-              <img class="icon" src="../asset/img/snap.png" alt="" />john_doe
-            </li>
-            <div class="btnsCard">
-              <a href=""
-                ><img class="icon" src="../asset/img/more.png" alt=""
-              /></a>
-            </div>
-          </section>
-        </div>
-
-        <!-- Card -->
-        <div class="card">
-          <div class="triangle"></div>
-          <img class="imgProfil" src="../asset/img/john.jpg" alt="" />
-          <section class="cardInfo">
-            <h2 class="title">
-              <span class="name">John</span><span class="age"> 18</span>
-            </h2>
-            <li>
-              <img
-                class="icon"
-                src="../asset/img/instagram.png"
-                alt=""
-              />john_doe
-            </li>
-            <li>
-              <img class="icon" src="../asset/img/snap.png" alt="" />john_doe
-            </li>
-            <div class="btnsCard">
-              <a href=""
-                ><img class="icon" src="../asset/img/more.png" alt=""
-              /></a>
-            </div>
-          </section>
-        </div>
       </section>
     </main>
   </body>
