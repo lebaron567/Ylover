@@ -53,7 +53,7 @@ const handleLogin = async function (req, res, formData) {
           }
         } else {
           // Utilisateur non trouvé
-          res.writeHead(401, { "Content-Type": "text/plain" });
+          res.writeHead(302, { Location: "/" });
           res.end("User not found");
         }
       });
