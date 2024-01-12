@@ -36,7 +36,7 @@ const requestListener = async function (req, res) {
       filePath = path.join(__dirname, "front", "html", "index.html");
       break;
     case "/discover":
-      filePath = path.join(__dirname, 'front', 'discover.html');
+      filePath = path.join(__dirname, 'front', "html", 'discover.html');
       await donner(req, res, filePath)
       break;
     case "/matchs":
