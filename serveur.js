@@ -1,4 +1,4 @@
-const { addLike } = require("./script/like");
+//const { addLike } = require("./script/like");
 const { handleLogin } = require("./script/conection ");
 const { dataSend } = require("./script/profilRecovery");
 const http = require("http");
@@ -36,12 +36,12 @@ const requestListener = async function (req, res) {
       filePath = path.join(__dirname, "front", "html", "index.html");
       break;
     case "/discover":
-      filePath = path.join(__dirname, 'front', "html", 'discover.html');
-      await donner(req, res, filePath)
+      filePath = path.join(__dirname, "front", "html", "discover.html");
+      await donner(req, res, filePath);
       break;
     case "/matchs":
       filePath = path.join(__dirname, "front", "html", "matchs.html");
-      await donner(req, res, filePath)
+      await donner(req, res, filePath);
       break;
     case "/likes":
       filePath = path.join(__dirname, "front", "html", "likes.html");
@@ -106,12 +106,12 @@ const serveStaticFile = async function (filePath, res) {
       res.setHeader("Content-Type", contentType);
       res.writeHead(200);
       res.end(contents);
-  }
+    }
   } catch (err) {
     console.error(`Error reading file: ${err.message}`);
     if (!res.headersSent) {
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.end("Internal Server Error");
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
     }
   }
 };
@@ -152,6 +152,5 @@ function handleClick(event) {
   const classesArray = Array.from(elementClasses);
 
   // Faire quelque chose avec les classes (par exemple, afficher dans la console)
-  console.log('Classes de l\'élément cliqué:', classesArray);
+  console.log("Classes de l'élément cliqué:", classesArray);
 }
-
