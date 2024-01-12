@@ -195,3 +195,114 @@ main {
   position: absolute;
   border-radius: 25px 25px 0 28px;
 }
+
+@media (max-width: 1400px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    flex-direction: row;
+    height: 15em;
+    border-radius: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  nav .logo {
+    height: 3rem;
+    width: 3rem;
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+  nav ul {
+    margin-top: 0;
+    display: flex;
+  }
+  nav .btnNav {
+    flex-direction: row;
+    margin-left: 2rem;
+    margin-top: 0;
+  }
+  nav .deco {
+    margin-top: 10rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18rem;
+    margin-left: 0;
+    width: 100%;
+  }
+  .card {
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+    margin-bottom: 2em;
+  }
+  .card .pisctures {
+    flex-direction: column;
+    margin-bottom: 5em;
+    padding: 1em;
+    background-color: #fefefe;
+    border-radius: 30px;
+  }
+  .card .imgProfil {
+    height: 30em;
+    width: 100%;
+    margin-right: 0;
+  }
+  .card .cardInfo {
+    margin-left: 0;
+    width: 70%;
+  }
+  .triangle {
+    display: none;
+  }
+  .card .cardInfo .description {
+    width: 80%;
+    border: solid 4px #fefefe;
+    padding: 1em;
+    border-radius: 30px;
+  }
+  .card .cardInfo .title {
+    border-bottom: solid 4px #fefefe;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  nav {
+    align-items: center;
+    justify-content: center;
+  }
+  nav .logo {
+    display: none;
+  }
+  nav ul {
+    display: flex;
+    margin-top: -3em;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+  .card .cardInfo .HouHouFaitLeHibou {
+    color: #1e1e1e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 80%;
+  }
+  .card .imgProfil {
+    height: 15em;
+    width: 100%;
+  }
+}
