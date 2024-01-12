@@ -40,18 +40,21 @@
     </nav>
     <main>
       <h1 class="title">Profil</h1>
-      <form>
+      <form method="post">
         <div class="haut-form">
           <input
             class="input-haut-form"
             class="input"
             type="text"
+            id="nom"
             placeholder="Nom"
           />
+          <button class="submit" type="submit" onclick="recupererDonnees()" ><img class="icon" src="../asset/img/check.png" alt=""></button>
           <input
             class="input-haut-form"
             class="input"
             type="text"
+            id="prenom"
             placeholder="Prénom"
           />
         </div>
@@ -59,16 +62,17 @@
           <input
             class="input-milieu-form"
             type="text"
+            id="description"
             placeholder="Description"
           />
         </div>
         <div class="bas-form">
-          <input class="input-pied-form" type="text" placeholder="Filière" />
-          <input class="input-pied-form" type="text" placeholder="Niveau" />
-          <input class="input-pied-form" type="text" placeholder="Ville" />
-          <input class="input-pied-form" type="text" placeholder="Age" />
+          <input class="input-pied-form" type="text" id="filière" placeholder="Filière" />
+          <input class="input-pied-form" type="text" id="niveau" placeholder="Niveau" />
+          <input class="input-pied-form" type="text" id="ville" placeholder="Ville" />
+          <input class="input-pied-form" type="text" id="age" placeholder="Age" />
         </div>
-      </form>
+      
       <div class="img-profil">
         <div class="select-img">
           <img id="preview" alt="" />
@@ -124,9 +128,11 @@
           />
           <label for="image-selector5">Sélectionner une image</label>
         </div>
+      </form>
       </div>
     </main>
 
     <script src="../asset/js/main.js"></script>
+    <script src="../../script/post.js"></script>
   </body>
 </html>
