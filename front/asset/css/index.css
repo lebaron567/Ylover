@@ -10,7 +10,6 @@ body {
   height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background-image: url("./img/fresque_rvb_couleur_repeat.svg");
   background-size: 2500px 375px;
 }
 a:hover {
