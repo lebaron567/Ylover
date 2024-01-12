@@ -1,4 +1,5 @@
 const { handleLogin } = require("./script/conection ");
+const { dataSend } = require("./script/profilRecovery");
 const http = require("http");
 const fs = require("fs").promises;
 const path = require("path");
@@ -14,7 +15,6 @@ const db = new sqlite3.Database(dbPath);
 function getUsers() {
   return new Promise((resolve, reject) => {
     const query = "SELECT * FROM user";
-    console.log("fg");
     db.all(query, (err, rows) => {
       if (err) {
         console.error("Erreur lors de la récupération des données :", err);
@@ -23,7 +23,6 @@ function getUsers() {
       }
 
       const jsonData = JSON.stringify(rows);
-      console.log(jsonData);
       resolve(jsonData);
     });
   });
@@ -36,8 +35,8 @@ const requestListener = async function (req, res) {
       filePath = path.join(__dirname, "front", "html", "index.html");
       break;
     case "/discover":
-      filePath = path.join(__dirname, 'front', "html", 'discover.html');
-      await donner(req, res, filePath)
+      filePath = path.join(__dirname, "front", "html", "discover.html");
+      await donner(req, res, filePath);
       break;
     case "/matchs":
       filePath = path.join(__dirname, "front", "html", "matchs.html");
@@ -53,6 +52,10 @@ const requestListener = async function (req, res) {
       break;
     case "/myProfil":
       filePath = path.join(__dirname, "front", "html", "myProfil.html");
+      if (req.method === "POST") {
+        dataSend(req, res, filePath);
+        return;
+      }
       break;
     default:
       filePath = path.join(__dirname, "front", req.url);
@@ -60,35 +63,38 @@ const requestListener = async function (req, res) {
 
   if (req.method === "POST" && req.url === "/login") {
     // Si c'est une requête POST à /login, traitez-la ici
-    handleLogin(req, res);
+    await handleLogin(req, res);
   } else {
     // Sinon, servez le fichier statique comme d'habitude
     serveStaticFile(filePath, res);
   }
 };
+
 async function donner(req, res, filePath) {
   try {
-      const cardsData = await getUsers();
-      let fileContent = await fs.readFile(filePath, 'utf-8');
-      cardsData
-      fileContent = fileContent.replace('const cardsData = [];', `const cardsData = ${cardsData};`);
+    const cardsData = await getUsers();
+    let fileContent = await fs.readFile(filePath, "utf-8");
+    cardsData;
+    fileContent = fileContent.replace(
+      "const cardsData = [];",
+      `const cardsData = ${cardsData};`
+    );
 
-      // Vérifier si la réponse n'a pas déjà été envoyée
-      if (!res.headersSent) {
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(fileContent);
-      }
+    // Vérifier si la réponse n'a pas déjà été envoyée
+    if (!res.headersSent) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(fileContent);
+    }
   } catch (error) {
-      console.error('Erreur lors de la récupération des données :', error);
+    console.error("Erreur lors de la récupération des données :", error);
 
-      // Vérifier si la réponse n'a pas déjà été envoyée
-      if (!res.headersSent) {
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
-          res.end('Internal Server Error');
-      }
+    // Vérifier si la réponse n'a pas déjà été envoyée
+    if (!res.headersSent) {
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
+    }
   }
 }
-
 
 const serveStaticFile = async function (filePath, res) {
   try {
@@ -98,12 +104,12 @@ const serveStaticFile = async function (filePath, res) {
       res.setHeader("Content-Type", contentType);
       res.writeHead(200);
       res.end(contents);
-  }
+    }
   } catch (err) {
-    console.error(`Error reading file: ${err.message}`);
     if (!res.headersSent) {
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.end("Internal Server Error");
+      console.error(`Error reading file: ${err.message}`);
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
     }
   }
 };
