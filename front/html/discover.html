@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../asset/css/discover_likes.css" />
   </head>
   <body>
+    <script src="../../serveur.js"></script>
     <nav>
       <img class="logo" src="../asset/img/logo.png" alt="" />
       <ul>
@@ -51,6 +52,14 @@
           // Sélectionnez la section où vous souhaitez ajouter les nouvelles cartes
           const matchDeFootSection = document.getElementById("matchDeFoot");
           const cardsData = [];
+          function handleClick(event) {
+            event.preventDefault();
+            const clickedButton = event.target;
+            const buttonId = clickedButton.id;
+            console.log('ID du bouton cliqué :', buttonId);
+          }
+
+          console.log(cardsData)
           // Parcourez les données et créez dynamiquement les cartes
           cardsData.forEach((card) => {
             // Créez les éléments de la carte
@@ -115,18 +124,30 @@
             moreIconElement.alt = "";
             profilLinkElement.appendChild(moreIconElement);
 
-            const likeLinkElement = document.createElement("a");
-            likeLinkElement.href = "";
-            btnsCardElement.appendChild(likeLinkElement);
+        const likeFormElement = document.createElement("form");
+        likeFormElement.method = "post";
+        likeFormElement.classList.add("like-form");
+        btnsCardElement.appendChild(likeFormElement);
 
-            const likeIconElement = document.createElement("img");
-            likeIconElement.classList.add("icon");
-            likeIconElement.src = "../asset/img/like.png";
-            likeIconElement.alt = "";
-            likeLinkElement.appendChild(likeIconElement);
+        const likeButtonElement = document.createElement("button");
+        likeButtonElement.classList.add("like-button");
+        moreIconElement.classList.add("bouton");
+        likeButtonElement.type = "button"; // type button pour éviter la soumission du formulaire
+        likeButtonElement.id = `lien-${card.id}`; // ID unique basé sur l'ID de la carte
+        likeButtonElement.value = card.id;
+        likeButtonElement.addEventListener("click", handleClick);
+        likeFormElement.appendChild(likeButtonElement);
 
-            // Ajoutez la carte créée à la section
-            matchDeFootSection.appendChild(cardElement);
+        const likeIconElement = document.createElement("img");
+        likeIconElement.classList.add("icon");
+        likeIconElement.src = "../asset/img/like.png";
+        likeIconElement.alt = "";
+        likeButtonElement.appendChild(likeIconElement);
+          // Ajoutez la carte créée à la section
+          matchDeFootSection.appendChild(cardElement);
+
+          // Ajoutez un écouteur de clic à l'élément de lien
+          
           });
         </script>
       </section>

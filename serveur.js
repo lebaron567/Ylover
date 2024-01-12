@@ -1,3 +1,4 @@
+const { addLike } = require("./script/like");
 const { handleLogin } = require("./script/conection ");
 const http = require("http");
 const fs = require("fs").promises;
@@ -14,7 +15,6 @@ const db = new sqlite3.Database(dbPath);
 function getUsers() {
   return new Promise((resolve, reject) => {
     const query = "SELECT * FROM user";
-    console.log("fg");
     db.all(query, (err, rows) => {
       if (err) {
         console.error("Erreur lors de la récupération des données :", err);
@@ -23,7 +23,6 @@ function getUsers() {
       }
 
       const jsonData = JSON.stringify(rows);
-      console.log(jsonData);
       resolve(jsonData);
     });
   });
@@ -38,9 +37,14 @@ const requestListener = async function (req, res) {
     case "/discover":
       filePath = path.join(__dirname, 'front', "html", 'discover.html');
       await donner(req, res, filePath)
+      if(req.method === "POST"){
+        addLike()
+        console.log("ddd")
+      }
       break;
     case "/matchs":
       filePath = path.join(__dirname, "front", "html", "matchs.html");
+      await donner(req, res, filePath)
       break;
     case "/likes":
       filePath = path.join(__dirname, "front", "html", "likes.html");
@@ -94,13 +98,17 @@ const serveStaticFile = async function (filePath, res) {
   try {
     const contents = await fs.readFile(filePath);
     const contentType = getContentType(filePath);
-    res.setHeader("Content-Type", contentType);
-    res.writeHead(200);
-    res.end(contents);
+    if (!res.headersSent) {
+      res.setHeader("Content-Type", contentType);
+      res.writeHead(200);
+      res.end(contents);
+  }
   } catch (err) {
     console.error(`Error reading file: ${err.message}`);
+    if (!res.headersSent) {
     res.writeHead(500, { "Content-Type": "text/plain" });
     res.end("Internal Server Error");
+    }
   }
 };
 
@@ -125,4 +133,21 @@ const server = http.createServer(requestListener);
 server.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });
-module.exports = { getUsers };
+
+function handleClick(event) {
+  // Empêcher le comportement par défaut du lien pour éviter une redirection
+  event.preventDefault();
+
+  // Récupérer l'élément sur lequel le clic a été effectué
+  const clickedElement = event.target;
+
+  // Récupérer les classes de l'élément
+  const elementClasses = clickedElement.classList;
+
+  // Convertir les classes en tableau (si nécessaire) pour un traitement ultérieur
+  const classesArray = Array.from(elementClasses);
+
+  // Faire quelque chose avec les classes (par exemple, afficher dans la console)
+  console.log('Classes de l\'élément cliqué:', classesArray);
+}
+

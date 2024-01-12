@@ -215,3 +215,61 @@ label {
   cursor: pointer;
   border-radius: 20px;
 }
+
+/* ------------------- RESPONSIVE------------------- */
+
+@media screen and (max-width: 1024px) {
+  nav {
+    width: 10rem;
+  }
+
+  nav .logo {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  nav .btnNav span {
+    font-size: 1rem;
+  }
+
+  nav .deco {
+    font-size: 1rem;
+  }
+
+  main {
+    margin-left: 10rem;
+  }
+
+  main .title {
+    font-size: 1.5rem;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .input-haut-form {
+    width: 20rem;
+  }
+
+  .input-milieu-form {
+    width: 40rem;
+  }
+
+  .input-pied-form {
+    width: 10rem;
+  }
+
+  .img-profil {
+    flex-direction: column;
+  }
+
+  .select-img {
+    flex-direction: row;
+  }
+
+  #preview , #preview2 , #preview3 , #preview4 , #preview5 {
+    width: 5rem;
+    height: 5rem;
+  }
+}
