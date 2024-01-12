@@ -47,14 +47,16 @@
             class="input"
             type="text"
             id="nom"
+            name="last_name"
             placeholder="Nom"
           />
-          <button class="submit" type="submit" onclick="recupererDonnees()" ><img class="icon" src="../asset/img/check.png" alt=""></button>
+          <button class="submit" type="submit" onclick="dataRecovery()" ><img class="icon" src="../asset/img/check.png" alt=""></button>
           <input
             class="input-haut-form"
             class="input"
             type="text"
             id="prenom"
+            name="first_name"
             placeholder="Prénom"
           />
         </div>
@@ -63,14 +65,15 @@
             class="input-milieu-form"
             type="text"
             id="description"
+            name="bio"
             placeholder="Description"
           />
         </div>
         <div class="bas-form">
-          <input class="input-pied-form" type="text" id="filière" placeholder="Filière" />
-          <input class="input-pied-form" type="text" id="niveau" placeholder="Niveau" />
-          <input class="input-pied-form" type="text" id="ville" placeholder="Ville" />
-          <input class="input-pied-form" type="text" id="age" placeholder="Age" />
+          <input class="input-pied-form" type="text" id="filière" name="branch" placeholder="Filière" />
+          <input class="input-pied-form" type="text" id="niveau" name="level" placeholder="Niveau" />
+          <input class="input-pied-form" type="text" id="ville" name="city" placeholder="Ville" />
+          <input class="input-pied-form" type="text" id="age" name="age" placeholder="Age" />
         </div>
       
       <div class="img-profil">
@@ -133,6 +136,6 @@
     </main>
 
     <script src="../asset/js/main.js"></script>
-    <script src="../../script/post.js"></script>
+    <!-- <script src="../asset/js/postProfil.js"></script> -->
   </body>
 </html>
